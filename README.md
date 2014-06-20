@@ -10,9 +10,10 @@ The initial structure of your folders should look like this:
 ```
 /lb/project/mugqic/hgen698_X
 |-- reference/               # genome and annotation files
-|-- raw_reads/               # fastqs from the center (down sampled)
+|-- SNParray/                # BAF and logR files per sample
+|-- alignment/               # bam files generated previously
     `-- SAMPLE               # One sample directory
-        `-- runXXXX_Y        # Lane directory by run number. Contains the fastqs
+        
 
 ```
 
@@ -21,4 +22,4 @@ The initial structure of your folders should look like this:
 
 
 ## Aknowledgments
-The format for this tutorial has been inspired from Mar Gonzalez Porta of Embl-EBI and Louis letourneau from MUGQIC, who I would like to thank and acknowledge.
+The format for this tutorial has been inspired from Mar Gonzalez Porta of Embl-EBI and Louis Letourneau from MUGQIC, who I would like to thank and acknowledge.
