@@ -12,12 +12,29 @@ The initial structure of your folders should look like this:
 |-- reference/               # genome and annotation files
 |-- SNParray/                # BAF and logR files per sample
 |-- alignment/               # bam files generated previously
-    `-- SAMPLE               # One sample directory
-        
+    `-- SAMPLE               # One sample directory     
 
 ```
 
+# Data
+in this hands-on two types of data are available: SNParray and NGS data
 
+```
+NGS data
+|approximately 1M of Illumina paired-end 100 reads covering the region _chr19 : 50500375 - 52501256_ from a whole genome experiment for germline and matched tumor samples.
+|For each sample:
+||1 alignment file (.bam generated in the previous hands-on) on the human reference séquence
+
+SNParray data
+|Illumina data for more than 650000 SNPs located genome wide for germline and matched tumor samples
+|For each sample:
+||1 file containing the LogRatio (LRR) mesurement of each probe: the signal intensities compared to a collection of reference hybridizations
+||1 file containing the B Allele Frequency (BAF) mesurement of each probe: the proportion of the total allele signal (A + B) explained by a single allele (A) 
+
+```
+
+**What are the advantages and limitations of using each type of technology ?**
+[solution](solutions/1.dataDiff.md)
 
 
 
