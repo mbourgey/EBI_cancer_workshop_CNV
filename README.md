@@ -25,15 +25,15 @@ approximately 1M of Illumina paired-end 100 reads covering the region _chr19 : 5
 
 For each sample:
 
-	1 alignment file (.bam generated in the previous hands-on) on the human reference s�quence
+	1 alignment file (.bam generated in the previous hands-on) on the human reference sequence
 
 **SNParray data**
 
 Illumina data for more than 650000 SNPs located genome wide for germline and matched tumor samples
 
 For each sample:
-.1 file containing the LogRatio (LRR) mesurement of each probe: the signal intensities compared to a collection of reference hybridizations
-.1 file containing the B Allele Frequency (BAF) mesurement of each probe: the proportion of the total allele signal (A + B) explained by a single allele (A) 
+	1 file containing the LogRatio (LRR) mesurement of each probe: the signal intensities compared to a collection of reference hybridizations
+	1 file containing the B Allele Frequency (BAF) mesurement of each probe: the proportion of the total allele signal (A + B) explained by a single allele (A) 
 
 
 
