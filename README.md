@@ -8,8 +8,10 @@ This workshop will show you how to proceed when to detect Copy Number Variants (
 
 The initial structure of your folders should look like this:
 ```
-/lb/project/mugqic/hgen698_X
-|-- reference/               # genome and annotation files
+UKworkshop/
+|-- src/                     # scripts
+|-- NGS_CNV/                 # Analysis folder for NGS data
+|-- SNP_CNV/                 # Analysis folder for SNParray data
 |-- SNParray/                # BAF and logR files per sample
 |-- alignment/               # bam files generated previously
     `-- SAMPLE               # One sample directory     
@@ -47,7 +49,7 @@ We will start from two alignment files of the tumor and germline samples form th
 
 ![read Depth](./images/readDepth.jpg "readDepth")
 
-**What are the main steps to proceed this analysis ?**
+**What are the steps to proceed this analysis ?**
 [solution](solutions/2.NgsAnalysisSummary.md)
 
 
