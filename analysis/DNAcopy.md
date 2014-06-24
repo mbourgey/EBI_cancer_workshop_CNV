@@ -1,23 +1,24 @@
 # CNV analysis
-CNV from NGS data will be called by munally applying the 
+In order to give you a good understanding of the process of CNV calling from NGS data, we will manually do the CNV calls in R. To do this we will apply the 
 [DNAcopy](http://www.ncbi.nlm.nih.gov/pubmed/15475419) 
-approach orginally developped for CGH array.
+approach orginally developped for CGH array to the NGS data.
 
 ### Environment setup
+
 DNAcopy is an 
 [R](http://cran.r-project.org/) 
 package and it can be downloaded directly from the 
-[Bioconductor packe page](http://www.bioconductor.org/packages/release/bioc/html/DNAcopy.html)
-.
+[Bioconductor packe page](http://www.bioconductor.org/packages/release/bioc/html/DNAcopy.html).
 
 ### DNAcopy overview
 
 Take a look at the DNAcopy available function:
 
-[DNAcopy Mmanual](http://www.bioconductor.org/packages/release/bioc/manuals/DNAcopy/man/DNAcopy.pdf)
+[DNAcopy manual](http://www.bioconductor.org/packages/release/bioc/manuals/DNAcopy/man/DNAcopy.pdf)
 
 
-Which functions should we used ? 
+**Which functions should we used ?**  
+
 [solution](../solutions/4.DnaCopy_explanation.md)
 
 
@@ -42,7 +43,7 @@ Try to do the analysis on your own:
 8. Smooth the LRR signal [solution](../solutions/4.8DnaCopy_smooth.md)
 9. Generate segments [solution](../solutions/4.9DnaCopy_segments.md)
 10. Call CNA segments [solution](../solutions/4.10DnaCopy_calls.md)
-11. save the CNA [solution](../solutions/4.11DnaCopy_output.md)
+11. Save the CNA [solution](../solutions/4.11DnaCopy_output.md)
 
 ###### What can we see from the result file ?
 [solution](../solutions/4.12DnaCopy_exam.md)
