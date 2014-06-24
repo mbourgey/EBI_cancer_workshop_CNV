@@ -46,7 +46,7 @@ For each sample:
 
 We will start from two alignment files of the tumor and germline samples form the same individual and we will apply a manual read depth procedure to estimate the tumoral copy number.
 
-![read Depth](images/readDeapth.jpg "readDepth")
+![read Depth](./images/readDepth.jpg "readDepth")
 
 **What are the main steps to proceed this analysis ?**
 [solution](solutions/2.NgsAnalysisSummary.md)
