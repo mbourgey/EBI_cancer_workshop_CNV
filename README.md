@@ -34,7 +34,6 @@ Illumina data for more than 650000 SNPs located genome wide for germline and mat
 For each sample:
 
 	1 file containing the LogRatio (LRR) mesurement of each probe: the signal intensities compared to a collection of reference hybridizations
-
 	1 file containing the B Allele Frequency (BAF) mesurement of each probe: the proportion of the total allele signal (A + B) explained by a single allele (A) 
 
 
