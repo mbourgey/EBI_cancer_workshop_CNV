@@ -71,7 +71,7 @@ For your information, here is a non-exhaustive list of avaialble software for ca
 | mrCaNaVar | http://mrcanavar.sourceforge.net | C | SAM | A tool to detect large segmental duplications and insertions |
 | cnvHMM | http://genome.wustl.edu/software/cnvhmm | C | Consensus sequence from SAMtools | Using HMM to detect CNV |
 | _PopSV_ | NA | R | BAM | Use a population of controls sample to detect individual CNV |
-| _DNACRD_ | NA | R | bin read count | Correct for GC and mappability and use a sample specific outlier detection approach | 
+| _**DNACRD**_ | NA | R | bin read count | Correct for GC and mappability and use a sample specific outlier detection approach | 
 
 
 
