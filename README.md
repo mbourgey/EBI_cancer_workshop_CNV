@@ -104,8 +104,9 @@ As we use cancer data, we will use the ASCAT software. We choose ASCAT because i
 Here is a video pshowing how the ASCAT software works:
 
 official video
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/V6UdEEeVBz8" frameborder="0" allowfullscreen></iframe>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=V6UdEEeVBz8
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 [local Shortened version] (videos/ASCAT_Algorithm_BioDiscovery.com.mp4)
 
