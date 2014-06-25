@@ -52,7 +52,7 @@ We will start from two alignment files of the tumor and germline samples form th
 **What are the steps to proceed this analysis ?**
 [solution](solutions/2.NgsAnalysisSummary.md)
 
-For your information, here is a non-exhaustive list of avaialble software for calling CNV in whole genome NGS Data:
+For your information, here is a non-exhaustive list of available softwares for calling CNV using whole genome NGS Data:
 
 | Tool | URL | Language | Input | Comments |
 |:--:|:-:|:------:|:---:|:------:|
@@ -70,13 +70,44 @@ For your information, here is a non-exhaustive list of avaialble software for ca
 | CMDS | https://dsgweb.wustl.edu/qunyuan/software/cmds | C, R | Aligned read positions | Discovering CNVs from multiple samples |
 | mrCaNaVar | http://mrcanavar.sourceforge.net | C | SAM | A tool to detect large segmental duplications and insertions |
 | cnvHMM | http://genome.wustl.edu/software/cnvhmm | C | Consensus sequence from SAMtools | Using HMM to detect CNV |
-| _PopSV_ | NA | R | BAM | Use a population of controls sample to detect individual CNV |
+| _**PopSV**_ | NA | R | BAM | Use a population of controls sample to detect individual CNV |
 | _**DNACRD**_ | NA | R | bin read count | Correct for GC and mappability and use a sample specific outlier detection approach | 
 
 
 
 # SNParray data analysis
 
+SNParray analysis are very similar to NGS data analysis while incorporating the additional information bring by the SNP: the BAF. In this analysis we will start from one LRR signal file and one BAF signal file for each of the germline and matched tumor samples from an individul.
+
+Many software are avaiable for doing CNV call from SNParray. Here is a non-exhaustive list of  softaware that could be used:
+
+
+1. Proprietary softwares
+  1. [GenomeStudio/CNVpartition](http://support.illumina.com/array/array_software/genomestudio/downloads.ilmn) - Illumina
+  2. [Genotyping Console/Birdsuite](http://www.broadinstitute.org/science/programs/medical-and-population-genetics/birdsuite/birdsuite-0) - Affymetrix
+2. Affymetrix oriented softwares
+  1. [Genome Alteration Detection Algorithm (GADA)](https://r-forge.r-project.org/R/?group_id=915)
+  2. [Cokgen](http://mendel.gene.cwru.edu/laframboiselab/software.php)
+3. Commercial softwares
+  1. [Partek Genomics Suite](http://www.partek.com/)
+  2. [Golden Helix SNP](http://www.goldenhelix.com/SNP_Variation/CNV_Analysis_Package/index.html)
+4. Freely available general software
+  1. [PennCNV](http://www.openbioinformatics.org/penncnv/)
+  2. [QuantiSNP](https://sites.google.com/site/quantisnp/)
+5. Freely available cancer oriented software
+  1. [**Allele-Specific Copy number Analysis of Tumors (ASCAT)**](http://heim.ifi.uio.no/bioinf/Projects/ASCAT/)
+  2. [OncoSNP](https://sites.google.com/site/oncosnp/)
+  
+
+As we use cancer data, we will use the ASCAT software. We choose ASCAT because it take into account both the normal cell admixture and the tumor aneuploidy in the CNV analysis.
+
+Here is a video pshowing how the ASCAT software works:
+
+official video
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/V6UdEEeVBz8" frameborder="0" allowfullscreen></iframe>
+
+[local Shortened version] (videos/ASCAT_Algorithm_BioDiscovery.com.mp4)
 
 
 ## Aknowledgments
