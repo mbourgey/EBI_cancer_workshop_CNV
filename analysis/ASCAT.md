@@ -31,7 +31,7 @@ To call CNV, we will apply the segmentation and the allele specific copy number 
 Try to do the analysis on your own:
 
 1. Go to the working directory  and Open R [solution](../solutions/7.1ascat_Ropen.md)
-2. Load the ASCAT in R [solution](../solutions/7.2ascat_loadM.md)
+2. Load the ASCAT in R from the folder ../src [solution](../solutions/7.2ascat_loadM.md)
 3. Load the data into an ASCAT object [solution](../solutions/7.3ascat_loadD.md)
 4. Plot the raw data [solution](../solutions/7.4ascat_plotRaw.md)
 5. Apply the segmentation [solution](../solutions/7.5ascat_segments.md)

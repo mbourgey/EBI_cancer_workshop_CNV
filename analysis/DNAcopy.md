@@ -29,7 +29,7 @@ If necessary take a look at these basic R commands:
 [Surviving in R](http://personality-project.org/r/r.commands.html)
 
 
-To call CNV, we will apply a smoothing step, followed by a circulary binary segmentation and retain the segement that shows a sufficient ratio deviation (sugested: _[0.8;1.3]_ less than a 1/3 deviation in both direction) for a sufficient number of consecutive bins (sugested: _10 bins_ )
+To call CNV, we will apply a smoothing step, followed by a circulary binary segmentation and retain the segement that shows a sufficient ratio deviation (sugested: _[0.5;2]_ less than a 1/2 deviation in both direction) for a sufficient number of consecutive bins (sugested: _10 bins_ )
 
 Try to do the analysis on your own:
 
@@ -52,4 +52,5 @@ To confirm these result, it is recommended to proceed to addtional validation st
 
 1. Visual inspection of calls
 2. Lab validation
+
 
