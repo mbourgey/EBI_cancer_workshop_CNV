@@ -99,16 +99,24 @@ Many software are avaiable for doing CNV call from SNParray. Here is a non-exhau
   2. [OncoSNP](https://sites.google.com/site/oncosnp/)
   
 
-As we use cancer data, we will use the ASCAT software. We choose ASCAT because it take into account both the normal cell admixture and the tumor aneuploidy in the CNV analysis.
+**What are the major cancer factors that could biais a CNV analysis  ?**
 
-Here is a video pshowing how the ASCAT software works:
+[solution](solutions/5.cancerChallenge.md)
 
-official video
+
+
+Here is a video showing how the ASCAT software works:
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=V6UdEEeVBz8
 " target="_blank"><img src="http://img.youtube.com/vi/V6UdEEeVBz8/0.jpg" 
 alt="ASCAT CNV" width="240" height="180" border="10" /></a>
 
+
 [local Shortened version] (videos/ASCAT_Algorithm_BioDiscovery.com.mp4)
+
+
+**What are the steps to proceed this analysis ?**
+[solution](solutions/6.SnpAnalysisSummary.md)
 
 
 ## Aknowledgments
