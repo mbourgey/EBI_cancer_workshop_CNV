@@ -28,7 +28,7 @@ approximately 1M of Illumina paired-end 100 reads covering the region _chr19 : 5
 
 For each sample:
 
-	1 alignment file (.bam generated in the previous hands-on) on the human reference séquence
+	1 alignment file (.bam generated in the previous hands-on) on the human reference sequence
 
 **SNParray data**
 
