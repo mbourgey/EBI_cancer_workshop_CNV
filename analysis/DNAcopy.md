@@ -19,7 +19,7 @@ Take a look at the DNAcopy available function:
 
 **Which functions should we used ?**  
 
-[solution](../solutions/4.DnaCopy_explanation.md)
+[solution](solutions/4.DnaCopy_explanation.md)
 
 
 ### Analysis
@@ -33,20 +33,20 @@ To call CNV, we will apply a smoothing step, followed by a circulary binary segm
 
 Try to do the analysis on your own:
 
-1. Open R [solution](../solutions/4.1DnaCopy_Ropen.md)
-2. Load the DNAcopy package in R [solution](../solutions/4.2DnaCopy_loadDC.md)
-3. Load the bin count data in R [solution](../solutions/4.3DnaCopy_loadData.md)
-4. Clean count data (remove uncovered region) [solution](../solutions/4.4DnaCopy_cleanData.md)
-5. Normalize count [solution](../solutions/4.5DnaCopy_normData.md)
-6. Compute LogRatio [solution](../solutions/4.6DnaCopy_LRR.md)
-7. Create a copy number alteration object from the data [solution](../solutions/4.7DnaCopy_CNA.md)
-8. Smooth the LRR signal [solution](../solutions/4.8DnaCopy_smooth.md)
-9. Generate segments [solution](../solutions/4.9DnaCopy_segments.md)
-10. Call CNA segments [solution](../solutions/4.10DnaCopy_calls.md)
-11. Save the CNA [solution](../solutions/4.11DnaCopy_output.md)
+1. Open R [solution](solutions/4.1DnaCopy_Ropen.md)
+2. Load the DNAcopy package in R [solution](solutions/4.2DnaCopy_loadDC.md)
+3. Load the bin count data in R [solution](solutions/4.3DnaCopy_loadData.md)
+4. Clean count data (remove uncovered region) [solution](solutions/4.4DnaCopy_cleanData.md)
+5. Normalize count [solution](solutions/4.5DnaCopy_normData.md)
+6. Compute LogRatio [solution](solutions/4.6DnaCopy_LRR.md)
+7. Create a copy number alteration object from the data [solution](solutions/4.7DnaCopy_CNA.md)
+8. Smooth the LRR signal [solution](solutions/4.8DnaCopy_smooth.md)
+9. Generate segments [solution](solutions/4.9DnaCopy_segments.md)
+10. Call CNA segments [solution](solutions/4.10DnaCopy_calls.md)
+11. Save the CNA [solution](solutions/4.11DnaCopy_output.md)
 
 ###### What can we see from the result file ?
-[solution](../solutions/4.12DnaCopy_exam.md)
+[solution](solutions/4.12DnaCopy_exam.md)
 
 To confirm these result, it is recommended to proceed to addtional validation steps:
 

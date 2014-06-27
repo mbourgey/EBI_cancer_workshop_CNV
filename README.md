@@ -42,7 +42,7 @@ For each sample:
 
 
 **What are the advantages and limitations of using each type of technology ?**
-[solution](solutions/1.dataDiff.md)
+[solution](#technology-differences)
 
 # NGS data analysis
 
@@ -51,7 +51,8 @@ We will start from two alignment files of the tumor and germline samples form th
 ![read Depth](./images/readDepth.jpg "readDepth")
 
 **What are the steps to proceed this analysis ?**
-[solution](solutions/2.NgsAnalysisSummary.md)
+[solution](#ngs-data-analysis-for-cnv-detection)
+
 
 
 For your information, here is a non-exhaustive list of available softwares for calling CNV using whole genome NGS Data:
@@ -118,6 +119,165 @@ alt="ASCAT CNV" width="240" height="180" border="10" /></a>
 **What are the steps to proceed this analysis ?**
 
 [solution](solutions/6.SnpAnalysisSummary.md)
+
+# Analysis
+
+## Bin count
+
+We use the software [BVAtools](https://bitbucket.org/mugqic/bvatools/downloads) to run this sep of the analysis.
+
+### Environment setup
+
+Open a terminal and set-up the environment in order to be able running BVAtools:
+
+```
+export BVATOOLS_JAR=/home/training/Applications/bvatools-1.3/bvatools-1.3-full.jar 
+```
+
+### BVAtools overview
+
+Take a look at the BVAtools usage:
+
+```
+java7 -jar $BVATOOLS_JAR
+
+java7 -jar $BVATOOLS_JAR bincounter
+```
+
+Which parameters should we used ? 
+[solution](#bincounter-parameters)
+
+
+<div class="pagebreak"></div>
+
+# Solutions
+
+## Technology differences
+
+### SNP array
+#### Pros
+SNP array data offers many advantages in terms of cost, throughput,  turn around time and processing. But mainly the major advantage of this type of approach is the key advantage of SNP arrays is the use of SNP BAF in addtion to LRR which really increase the CNV detection sensitivity and a better identification of the event type.
+
+
+#### Cons
+SNP array are limited to detecting copy-number differences of sequences present in the reference assembly used to design the probes, provide no information on the location of duplicated copies. A major limitation of SNP array is  the size range of alterations detected. In order to provide good CNV call a minimum nbumber of probes is required which allows only the detection of large event and disable the resolution of breakpoints at the single-base-pair level.
+
+
+### NGS
+#### Pros
+The most important benefits of NGS technologies are a genome-wide analysis without a priori information, the specificity and linear dynamic range response of NGS data offer many advantages for estimation of copy number. Additionally NGS allows fine detection of small event and several methods of analysis coming from the CGH arrays domain are available.
+
+#### Cons
+NGS data are limited  by the cost, the turn around time and the processing complexity. Moreover the major limitations of NGS approach for CNV are the use of uniform reads distribution assumption (False) and the inherente noise in the data introduced by the quality of the reference sequence during the alignment step.
+
+### NGS (CGH) vs. SNP-array data representation
+![NGS (CGH) vs. SNP-array data representation](images/CGH_SNParray.jpg "CGH_SNParray")
+
+
+### Conclusion
+When studying CNV, using a combined approach of SNParray and NGS is actually the best alternative.
+
+
+<div class="pagebreak"></div>
+
+
+## NGS data analysis for CNV detection 
+
+  Starting from a fastq files (1-9) or from BAM files (4-9):
+
+#### 1. Sequence trimming
+
+  Removing low quality bases 
+
+#### 2. Genome alignment
+
+  Locate individual reads to the reference genome
+
+#### 3. Alignment refinement
+
+  Realign around INDELs, remove duplicates, etc...
+
+#### 4. Bin creation and count 
+
+
+  The choice of the bin size has a major importance (moving or overlaping windows)
+
+  [step 4 - analysis](#bin-count)
+
+#### 5. Bin count correction (optional)
+  1. GC content
+  2. Mappability
+
+**It won't be done today: it needs a whole genome data set**
+
+#### 6. Computing LRR
+
+  Normalize count between tumor and germaline then estimate the logRatio in each bin
+
+#### 7. LRR signal smoothing (optional)
+
+  Reduce single point outliers impact before analysis
+
+#### 8. LRR signal segmentation
+
+  Copy number aberrations (CNA) occur in contiguous regions of the chromosome that often cover multiple bins up to whole chromosome arms or chromosomes. The segmentation split the chromosomes into regions of equal copy number that accounts for the noise in the data
+
+#### 9. CNV calling from segments
+
+   Use any method that can differenciate the copy number of each segments 
+
+   Non-exhaustive available methods: 
+  * Thresholds
+  * Sd deviation
+  * Poisson distribution
+  * Z-score
+  * Event-Wise Testing
+  * Etc...
+
+[step 6 to 9  - analysis](../analysis/DNAcopy.md)
+
+
+
+<div class="pagebreak"></div>
+
+
+## Bincounter parameters
+| Parameter | explanation | Sugested value  |
+| ------------- |:-------------:| -----:|
+| --minMapQ | Filter out reads a mapping quality lower or equal at  | 35 |
+| --gc      | Compute GC% per window |  _not neccessary_ |
+| --ref | Path to the indexed Reference Genome |  _not neccessary_ |
+| --refbam | Path to the germline sample bam | ../alignment/normal/normal.sorted.dup.bam |
+| --bam | Path to the tumor sample bam | ../alignment/tumor/tumor.sorted.dup.bam |
+| --norm | unit for count normalization | chr |
+| --windows | bin size | 1000 | 
+
+
+### bincoutner analysis
+Feel free to test different sets of parameters.
+
+Sugested command line
+
+```
+cd /home/training/EBI_CNV_workshop2014/NGS_CNV
+java7 -jar $BVATOOLS_JAR bincounter --minMapQ 35 --refbam ../alignment/normal/normal.sorted.dup.bam --bam ../alignment/tumor/tumor.sorted.dup.bam --norm chr --windows 1000 > sample_binCount_1kb.tsv
+```
+
+The output file should looks like:
+```
+$ head sample_binCount_1kb.tsv 
+chr	start	end	sample_raw	ref_raw	sample_normalized	ref_normalized	ln(sample/ref)
+chr1	0	199	0	0	0.0	0.0	NaN
+chr1	200	399	0	0	0.0	0.0	NaN
+chr1	400	599	0	0	0.0	0.0	NaN
+chr1	600	799	0	0	0.0	0.0	NaN
+chr1	800	999	0	0	0.0	0.0	NaN
+chr1	1000	1199	0	0	0.0	0.0	NaN
+chr1	1200	1399	0	0	0.0	0.0	NaN
+chr1	1400	1599	0	0	0.0	0.0	NaN
+chr1	1600	1799	0	0	0.0	0.0	NaN
+```
+
 
 
 

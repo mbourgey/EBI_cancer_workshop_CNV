@@ -21,6 +21,6 @@ java7 -jar $BVATOOLS_JAR bincounter
 ```
 
 Which parameters should we used ? 
-[solution](../solutions/3.BinCount.md)
+[solution](solutions/3.BinCount.md)
 
 
