@@ -1,7 +1,9 @@
 2014 EBI Cancer Genomics workshop - CNV analysis
 ==============
 Mathieu Bourgey, Ph.D
+
 MCGill University and Genome Quebec Innovation Center
+
 mbourgey@genomequebec.com 
 
 
