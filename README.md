@@ -1,10 +1,9 @@
 2014 EBI Cancer Genomics workshop - CNV analysis
+==============
 Mathieu Bourgey, Ph.D
 MCGill University and Genome Quebec Innovation Center
 mbourgey@genomequebec.com 
-==============
 
-hands-on for NGS/SNParray CNV call trainning
 
 # Introduction
 This workshop will show you how to proceed when to detect Copy Number Variants (CNV) using either Next Generation Sequencing (NGS) or SNParray data 
