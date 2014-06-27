@@ -1,5 +1,12 @@
-CNVworkshopEBI Solutions
-========================
+2014 EBI Cancer Genomics workshop - CNV analysis - Solutions
+==============
+Mathieu Bourgey, Ph.D
+
+MCGill University and Genome Quebec Innovation Center
+
+mbourgey@genomequebec.com 
+
+--------------------------------------------------------------
 
 ## Technology differences
 
