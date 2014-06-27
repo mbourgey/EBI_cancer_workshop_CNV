@@ -1,7 +1,12 @@
-CNVworkshopEBI
+2014 EBI Cancer Genomics workshop - CNV analysis
 ==============
+Mathieu Bourgey, Ph.D
 
-hands-on for NGS/SNParray CNV call trainning
+MCGill University and Genome Quebec Innovation Center
+
+mbourgey@genomequebec.com CNVworkshopEBI
+
+---------------------
 
 # Introduction
 This workshop will show you how to proceed when to detect Copy Number Variants (CNV) using either Next Generation Sequencing (NGS) or SNParray data 
@@ -19,6 +24,7 @@ UKworkshop/
 
 ```
 
+---------------------------
 # Data
 in this hands-on two types of data are available: SNParray and NGS data
 
@@ -76,6 +82,8 @@ For your information, here is a non-exhaustive list of available softwares for c
 | _**PopSV**_ | NA | R | BAM | Use a population of controls sample to detect individual CNV |
 | _**DNACRD**_ | NA | R | bin read count | Correct for GC and mappability and use a sample specific outlier detection approach | 
 
+ 
+----------------------------------------------
 
 # SNParray data analysis
 
@@ -119,7 +127,7 @@ alt="ASCAT CNV" width="240" height="180" border="10" /></a>
 
 [solution](solutions/6.SnpAnalysisSummary.md)
 
-
+----------------------------------------
 
 ## Aknowledgments
 The format for this tutorial has been inspired from Mar Gonzalez Porta of Embl-EBI and Louis Letourneau from MUGQIC. This tutorial use materails form the [BioDicovery.com website](http://www.biodiscovery.com/video-library/), the [Alkan, Coe & Eichler's review article](http://www.nature.com/nrg/journal/v12/n5/full/nrg2958.html) and the [Zhao _et al._ artcile](http://www.biomedcentral.com/1471-2105/14/S11/S1). I would like to thank and acknowledge all of them.
