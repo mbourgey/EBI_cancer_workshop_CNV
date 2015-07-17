@@ -79,8 +79,8 @@ For your information, here is a non-exhaustive list of available softwares for c
 | CMDS | https://dsgweb.wustl.edu/qunyuan/software/cmds | C, R | Aligned read positions | Discovering CNVs from multiple samples |
 | mrCaNaVar | http://mrcanavar.sourceforge.net | C | SAM | A tool to detect large segmental duplications and insertions |
 | cnvHMM | http://genome.wustl.edu/software/cnvhmm | C | Consensus sequence from SAMtools | Using HMM to detect CNV |
-| _**PopSV**_ | NA | R | BAM | Use a population of controls sample to detect individual CNV |
-| _**DNACRD**_ | NA | R | bin read count | Correct for GC and mappability and use a sample specific outlier detection approach | 
+| _**PopSV**_ | https://github.com/jmonlong/PopSV | R | BAM | Use a population of controls sample to detect individual CNV |
+| _**SCoNEs**_ | https://bitbucket.org/mugqic/scones | R | bin read count | Correct for GC and mappability and use a sample specific outlier detection approach | 
 
  
 ----------------------------------------------
