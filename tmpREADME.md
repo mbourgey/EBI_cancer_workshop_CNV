@@ -175,14 +175,14 @@ As we haven’t already generated the pileup files, and we are not interested in
 mkdir -p sequenza
 
 ${SEQUENZA_UTILS} bam2seqz \
- -n K2110056/normal/normal_chr2_60Mb.bam \
- -t K2110056/tumor/tumor_chr2_60Mb.bam \
+ -n C0053/normal/normal_chr2_60Mb.bam \
+ -t C0053/tumor/tumor_chr2_60Mb.bam \
  --fasta ${REF}/Homo_sapiens.GRCh37.fa  \
  -gc ${REF}/Homo_sapiens.GRCh37.gc50Base.txt.gz \
  -q 20 \
  -N 20 \
  -C 2:106000000-166000000 | gzip > \
- sequenza/K2110056.seqz.gz 
+ sequenza/C0053.seqz.gz 
 
 ```
 
@@ -192,15 +192,15 @@ To reduce the size of the seqz file, we'll use of a binning function provided in
 ## sequenza preprocessing step 2 - seqz binning 500bp
 ${SEQUENZA_UTILS} seqz-binning \
  -w 500 \
- -s sequenza/K2110056.seqz.gz | gzip > \
- sequenza/K2110056.seqz.bin500.gz
+ -s sequenza/C0053.seqz.gz | gzip > \
+ sequenza/C0053.seqz.bin500.gz
 
 ```
 
-We can look at the first few lines of the output in the file `sequenza/K2110056.seqz.gz with:
+We can look at the first few lines of the output in the file `sequenza/C0053.seqz.gz with:
 
 ```{.bash}
-zless -S sequenza/K2110056.seqz.gz
+zless -S sequenza/C0053.seqz.gz
 
 ```
 This output has one line for each position in the BAMs and includes information on the position, depths, allele frequencies, zygosity, GC in the location.
@@ -241,7 +241,7 @@ The function `sequenza.extract` is designed to efficiently access the seqz file 
  - filter mutations by frequency and noise.
 
 ```{.R}
-data.file = "sequenza/K2110056.seqz.bin500.gz"
+data.file = "sequenza/C0053.seqz.bin500.gz"
 seqzdata = sequenza.extract(data.file)
 
 ```
