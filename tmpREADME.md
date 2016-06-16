@@ -276,38 +276,81 @@ Load the ASCAT in R from the folder scripts
 
 
 ```{.R}
-source("scripts/ascat-2.2.R")
+library(ASCAT)
 
 ```
 
 Load the data into an ASCAT object
 
 ```{.R}
-ascat.raw = ascat.loadData("data/tumor2.LRR.tsv","data/tumor2.BAF.tsv", "data/normal2.LRR.tsv","data/normal2.BAF.tsv")
+ascat.bc = ascat.loadData("C0056/tumor/tumor_LRR.tsv","C0056/tumor/tumor_BAF.tsv", "C0056/normal/normal_LRR.tsv","C0056/normal/normal_BAF.tsv")
 
 ```
 
 Plot the raw data 
 
 ```{.R}
-ascat.plotRawData(ascat.raw)
+ascat.plotRawData(ascat.bc)
 
 ```
 
-### Simultaneous segmenetation of LRR and BAF signal
+### Segmenetation of LRR and BAF signal
+The next step allows to perform the segmentation of both LRR and BAF signal. The main points of this segmentation is estimate a models of segmentation that should fit between the 2 signals
 
-   Models of segmentation should fit between the 2 signal
+```{.R}
+ascat.seg = ascat.aspcf(ascat.raw)
+
+```
+
+Plot the result off the segmentation
+
+```{.R}
+ascat.plotSegmentedData(ascat.seg)
+
+```
 
 
 ### Estimation of the model paremters
-  1. aberrant cell fraction
+This function will use the computed segmentation model and estimate the following sample paramters: 
+  1. aberrant cell fraction (cellularity)
   2. tumor ploidy
   3. absolute allele-specific copy number calls (for each allelic probes of the SNP)
-  
+
+
+```{.R}
+ascat.output = ascat.runAscat(ascat.seg)
+
+```
+Next save these estimates into a file
+
+
+```{.R}
+params.estimate=data.frame(Sample=names(ascat.output$aberrantcellfraction),Aberrant_cell_fraction=round(ascat.output$aberrantcellfraction,2),Ploidy=round(ascat.output$ploidy,2))
+write.table(params.estimate,"sample.Param_estimate.tsv",sep="\t",quote=F,col.names=T,row.names=F)
+
+```
+
 
 ### CNV calling from segments
+The last step woll determine the copy number by simply counting the total number of allele reported to the sample general ploidy.
 
-   determine the copy number by simply counting the total number of allele reported to the sample ploidy 
+
+```{.R}
+CNA=rep(".",dim(ascat.output$segments)[1])
+CNA[rowSums(output.table[,5:6]) > round(ascat.output$ploidy)]="DUP"
+CNA[rowSums(output.table[,5:6]) < round(ascat.output$ploidy)]="DEL"
+output.table=data.frame(ascat.output$segments,CNA=CNA)
+```
+
+And we finally save the CNV results into a file
+
+```{.R}
+write.table(output.table[output.table$CNA != ".",],"sample_CNVcalls.tsv",quote=F,sep="\t",col.names=T,row.names=F)
+q(save="yes")
+```
+
+
+
 
 -------------------------------------
 
