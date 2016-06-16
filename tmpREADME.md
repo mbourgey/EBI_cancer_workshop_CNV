@@ -298,7 +298,7 @@ ascat.plotRawData(ascat.bc)
 The next step allows to perform the segmentation of both LRR and BAF signal. The main points of this segmentation is estimate a models of segmentation that should fit between the 2 signals
 
 ```{.R}
-ascat.seg = ascat.aspcf(ascat.raw)
+ascat.seg = ascat.aspcf(ascat.bc)
 
 ```
 
@@ -337,8 +337,8 @@ The last step woll determine the copy number by simply counting the total number
 
 ```{.R}
 CNA=rep(".",dim(ascat.output$segments)[1])
-CNA[rowSums(output.table[,5:6]) > round(ascat.output$ploidy)]="DUP"
-CNA[rowSums(output.table[,5:6]) < round(ascat.output$ploidy)]="DEL"
+CNA[rowSums(ascat.output$segments[,5:6]) > round(ascat.output$ploidy)]="DUP"
+CNA[rowSums(ascat.output$segments[,5:6]) < round(ascat.output$ploidy)]="DEL"
 output.table=data.frame(ascat.output$segments,CNA=CNA)
 ```
 
