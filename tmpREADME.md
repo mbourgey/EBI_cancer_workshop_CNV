@@ -225,6 +225,34 @@ Let’s compare the small genomic block we ran with the same output from the ent
 **What are these graphs telling us ?** [solution](solutions/__results3.md)
 
 
+## Comparison with full bam results
+
+
+
+## CNV Visualisation/Confirmation in IGV
+Let’s see if we can visualise the CNV events. We will now open IGV and see if we can observe the predicted increase in copy number alterations within our genomic region.
+
+```{.bash}
+igv &
+
+```
+
+IGV will take 30 seconds or so to open so just be patient.
+
+For a events of this size (several Mb), we should not be able to easily observe it just by looking at the raw read alignments. In order to see coverage at large scale I rpre-generate the tdf file of each bam files. This means that we can aggregate the average read depth over relatively large chunks of the genome and compare these values between the normal and tumour genomes.
+
+Once IGV is open just load the normal et tumor bam files and zoom on the region `2:100000000-170000000`
+
+**What IGV profiles are telling us ?** [solution](solutions/__visu1.md)
+
+**How can you explain the peak and drop observed in both nromal and tumor ?** [solution](solutions/__visu2.md)
+
+**Are IGV profiles in concordence with sequenza results ?** [solution](solutions/__visu3.md)
+
+If we look at the tumor profiles wecan see that the 3 copies state correspond to a mean coverage of 60x, the 2 copies to 50x and the 1 copy to 40x. 
+
+**How could you explain these values ?** [solution](solutions/__visu4.md)
+
 ----------------------------------
 
 # SNParray data analysis
@@ -349,8 +377,11 @@ write.table(output.table[output.table$CNA != ".",],"sample_CNVcalls.tsv",quote=F
 q(save="yes")
 ```
 
+**What are these results telling us ?** [solution](solutions/__ascat1.md)
 
+The ASCAT analysis have been done on the same sample than the sequenza analysis
 
+**Are the two analyses concordent ?** [solution](solutions/__ascat2.md)
 
 -------------------------------------
 
