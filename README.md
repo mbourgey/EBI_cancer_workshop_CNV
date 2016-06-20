@@ -71,7 +71,7 @@ The initial structure of your folders should look like this:
         `-- tumor_chr2_60Mb.bam    # Alignment file as  generated through the SNV session
         `-- tumor_chr2_60Mb.bai    # Index of the alignment file
 |-- saved_results                  # Pre-computed files
-`-- commands.sh                    # cheat sheet
+`-- scripts                        # cheat sheet folder
 ```
 ## Generate a seqz file
 A seqz file contains genotype information, alleles and mutation frequency, and other features. This file is used as input for the R-based part of Sequenza.
@@ -220,12 +220,9 @@ This file contains three “pages” of copy number events through the entire ge
 
 We can see how this is a very easy to read output and lets us immediately see the frequency and severity of copy number events through the genome.
 
-Let’s compare the small genomic block we ran with the same output from the entire genome which has been pre-computed for you. This is located in the `saved_results/pre_generated/` folder and contains the same 13 output files as for the small genomic block.
+Let’s compare the small genomic block we ran with the same output from the entire genome which has been pre-computed for you. This is located in the `saved_results/preComputed/` folder and contains the same 13 output files as for the small genomic block.
 
 **What are these graphs telling us ?** [solution](solutions/__results3.md)
-
-
-## Comparison with full bam results
 
 
 
@@ -257,7 +254,9 @@ If we look at the tumor profiles wecan see that the 3 copies state correspond to
 
 # SNParray data analysis
 
-SNParray analysis are very similar to NGS data analysis while incorporating the additional information bring by the SNP: the BAF. In this analysis we will start from one LRR signal file and one BAF signal file for each of the germline and matched tumor samples from an individul.
+SNParray analysis are very similar to NGS data analysis and it is always good to use 2 different technologies to confirm your findings.
+
+start from one LRR signal file and one BAF signal file for each of the germline and matched tumor samples from an individul.
 
 Many software are avaiable for doing CNV call from SNParray. Here is a non-exhaustive list of  softaware that could be used:
 
@@ -286,17 +285,45 @@ Many software are avaiable for doing CNV call from SNParray. Here is a non-exhau
 
 [solution](solutions/ _SnpAnalysisSummary.md)
 
+## Prepare the Environment
+We will use a dataset derived from whole genome sequencing of a clear-cell renal carcinoma patient (Kidney cancer)
+
+```{.bash}
+## set environement
+cd $HOME/ebicancerworkshop201607/CNV/SNParray
+
+```
+### Software requirements
+These are all already installed, but here are the original links.
+
+  * [R](https://www.r-project.org/)
+  * [ASCAT R package*](https://github.com/Crick-CancerGenomics/ascat)
+
+## Original Setup
+
+The initial structure of your folders should look like this:
+```
+<ROOT>
+|-- C0053/                         # fastqs from the center (down sampled)
+    `-- normal                     # The blood sample directory
+        `-- normal_BAF.tsv         # Beta Allele frequency file
+        `-- normal_LRR.tsv         # Log R Ratio file 
+    `-- tumor                      # The tumor sample directory
+        `-- tumor_BAF.tsv          # Beta Allele frequency file
+        `-- tumor_LRR.tsv          # Log R Ratio file
+|-- saved_results                  # Pre-computed files
+`-- scripts                        # cheat sheet and builded ASCAT R package
+```
+
 ## SNP data analysis for CNV detection 
 In our case, the data are in LRR and BAF format so we skip the first processing steps 
 
 ###  Probe filtering
 This steps aim to filter out SNPs which are found to be homozygous for both  tumor and normal.
 
-First let's move to the working directory and launch R:
+First let's launch R:
 
 ```{.bash}
-cd $HOME/ebicancerworkshop201607/CNV/SNParray
-
 R
 
 ```
@@ -386,4 +413,4 @@ The ASCAT analysis have been done on the same sample than the sequenza analysis
 -------------------------------------
 
 ## Aknowledgments
-I would like to thank and acknowledge Louis Letourneau for this help and for sharing his material. The format of the tutorial has been inspired from Mar Gonzalez Porta. I also want to acknowledge Joel Fillon, Louis Letrouneau (again), Robert Eveleigh, Edouard Henrion, Francois Lefebvre, Maxime Caron and Guillaume Bourque for the help in building these pipelines and working with all the various datasets.
+I would like to thank and acknowledge Louis Letourneau and Dr. Velimir Gayevskiy for this help and for sharing his material. The format of the tutorial has been inspired from Mar Gonzalez Porta. I also want to acknowledge Joel Fillon, Louis Letrouneau (again), Robert Eveleigh, Edouard Henrion, Francois Lefebvre, Maxime Caron and Guillaume Bourque for the help in building these pipelines and working with all the various datasets.
