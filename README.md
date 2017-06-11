@@ -67,9 +67,11 @@ The initial structure of your folders should look like this:
     `-- normal                     # The blood sample directory
         `-- normal_chr2_60Mb.bam   # Alignment file as  generated through the SNV session
         `-- normal_chr2_60Mb.bai   # Index of the alignment file
+        `-- normal_chr2_60Mb.pileup.gz # preprocessed mpileUp file
     `-- tumor                      # The tumor sample directory
         `-- tumor_chr2_60Mb.bam    # Alignment file as  generated through the SNV session
         `-- tumor_chr2_60Mb.bai    # Index of the alignment file
+        `-- tumor_chr2_60Mb.pileup.gz # preprocessed mpileUp file
 |-- saved_results                  # Pre-computed files
 `-- scripts                        # cheat sheet folder
 ```
@@ -88,6 +90,17 @@ As we haven’t already generated the pileup files, and we are not interested in
 
 ```{.bash}
 ## sequenza preprocessing step 1 - bam 2 seqz format
+###Already preprocessed
+#samtools mpileup \
+# -f ${REF}/Homo_sapiens.GRCh37.fa \
+# -Q 20 C0053/normal/normal_chr2_60Mb.bam | gzip > \
+# C0053/normal/normal_chr2_60Mb.pileup.gz
+
+#samtools mpileup \
+# -f ${REF}/Homo_sapiens.GRCh37.fa \
+# -Q 20 C0053/tumor/tumor_chr2_60Mb.bam | gzip > \
+# C0053/tumor/tumor_chr2_60Mb.pileup.gz
+
 mkdir -p sequenza
 
 ${SEQUENZA_UTILS} bam2seqz \
