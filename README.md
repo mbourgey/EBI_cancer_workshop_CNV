@@ -43,10 +43,10 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-export SEQUENZA_UTILS=/home/training/R/x86_64-pc-linux-gnu-library/3.3/sequenza/exec/sequenza-utils.py
-export REF=/home/training/ebicancerworkshop201607/reference
+export SEQUENZA_UTILS=/usr/local/lib/R/site-library/sequenza/exec/sequenza-utils.py
+export REF=/home/training/ebicancerworkshop2017/reference
 
-cd $HOME/ebicancerworkshop201607/CNV/NGS
+cd $HOME/ebicancerworkshop2017/CNV/NGS
 
 ```
 ### Software requirements
