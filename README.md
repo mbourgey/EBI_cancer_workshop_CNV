@@ -86,7 +86,7 @@ The seqz file could be generated from a pileUp file (as shown in SNV session) or
 As we haven’t already generated the pileup files, and we are not interested in storing the pileup for further use, we can use the function
 `bam2seqz` which converting on the fly to pileup using samtools without storing the pileup file.
 
-**What the impact of converting data on the file ?** [solution](solutions/__seqz1.md)
+**What the impact of converting data on the fly ?** [solution](solutions/__seqz1.md)
 
 ```{.bash}
 ## sequenza preprocessing step 1 - bam 2 seqz format
