@@ -18,7 +18,7 @@ NGS data are limited  by the cost, the turn around time and the processing compl
 ![NGS (CGH) vs. SNP-array data representation](../img/CGH_SNParray.jpg "CGH_SNParray")
 
 
-##Conclusion
+## Conclusion
 When studying CNV, using a combined approach of SNParray and NGS is actually the best alternative.
 
 
