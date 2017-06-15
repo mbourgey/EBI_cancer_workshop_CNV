@@ -265,19 +265,19 @@ start from one LRR signal file and one BAF signal file for each of the germline 
 
 Many software are avaiable for doing CNV call from SNParray. Here is a non-exhaustive list of  softaware that could be used:
 
-1. Proprietary softwares
+#### Proprietary softwares
   1. [GenomeStudio/CNVpartition](http://support.illumina.com/array/array_software/genomestudio/downloads.ilmn) - Illumina
   2. [Genotyping Console/Birdsuite](http://www.broadinstitute.org/science/programs/medical-and-population-genetics/birdsuite/birdsuite-0) - Affymetrix
-2. Affymetrix oriented softwares
+#### Affymetrix oriented softwares
   1. [Genome Alteration Detection Algorithm (GADA)](https://r-forge.r-project.org/R/?group_id=915)
   2. [Cokgen](http://mendel.gene.cwru.edu/laframboiselab/software.php)
-3. Commercial softwares
+#### Commercial softwares
   1. [Partek Genomics Suite](http://www.partek.com/)
   2. [Golden Helix SNP](http://www.goldenhelix.com/SNP_Variation/CNV_Analysis_Package/index.html)
-4. Freely available general software
+#### Freely available general software
   1. [PennCNV](http://www.openbioinformatics.org/penncnv/)
   2. [QuantiSNP](https://sites.google.com/site/quantisnp/)
-5. Freely available cancer oriented software
+#### Freely available cancer oriented software
   1. [**Allele-Specific Copy number Analysis of Tumors (ASCAT)**](http://heim.ifi.uio.no/bioinf/Projects/ASCAT/)
   2. [OncoSNP](https://sites.google.com/site/oncosnp/)
 
