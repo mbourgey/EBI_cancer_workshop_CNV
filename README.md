@@ -319,7 +319,7 @@ The initial structure of your folders should look like this:
 ## SNP data analysis for CNV detection 
 In our case, the data are in LRR and BAF format so we'll skip the first processing steps 
 
-###  Probe filtering
+###  Plot probe LRR and BAF QC
 This steps aim to filter out SNPs which are found to be homozygous for both tumor and normal.
 
 First let's launch R:
@@ -349,6 +349,10 @@ Plot the raw filtered data
 ascat.plotRawData(ascat.bc)
 
 ```
+
+look at the graphs `tumor2.germline.png` and `tumor2.tumor.png`
+
+**what stands out from these graphs ?** [solution](solutions/__rawPlot.md)
 
 ### Segmenetation of LRR and BAF signal
 The next step allows to perform the segmentation of both LRR and BAF signal. The main points of this segmentation is estimate a models of segmentation that should fit between the 2 signals
@@ -404,6 +408,8 @@ And we finally save the CNV results into a file
 write.table(output.table[output.table$CNA != ".",],"sample_CNVcalls.tsv",quote=F,sep="\t",col.names=T,row.names=F)
 q(save="yes")
 ```
+
+Explore the result files
 
 **What are these results telling us ?** [solution](solutions/__ascat1.md)
 
