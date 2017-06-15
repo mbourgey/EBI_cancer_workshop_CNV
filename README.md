@@ -317,10 +317,10 @@ The initial structure of your folders should look like this:
 ```
 
 ## SNP data analysis for CNV detection 
-In our case, the data are in LRR and BAF format so we skip the first processing steps 
+In our case, the data are in LRR and BAF format so we'll skip the first processing steps 
 
 ###  Probe filtering
-This steps aim to filter out SNPs which are found to be homozygous for both  tumor and normal.
+This steps aim to filter out SNPs which are found to be homozygous for both tumor and normal.
 
 First let's launch R:
 
@@ -343,7 +343,7 @@ ascat.bc = ascat.loadData("C0056/tumor/tumor_LRR.tsv","C0056/tumor/tumor_BAF.tsv
 
 ```
 
-Plot the raw data 
+Plot the raw filtered data 
 
 ```{.R}
 ascat.plotRawData(ascat.bc)
