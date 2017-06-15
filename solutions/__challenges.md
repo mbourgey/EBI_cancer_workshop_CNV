@@ -12,7 +12,7 @@ The proportion of tumor cells can vary considerably, complicating the analysis s
 
 #### Clonality
 
-Copy number aberrations in tumor cells may arise several times throughout the tumor development, and may give rise to different subclones. The extent of the proliferative advantage and the time between occurrence of the aberration and tumor collection influence the proportion of subclones in the tumor cells [15].
+Copy number aberrations in tumor cells may arise several times throughout the tumor development, and may give rise to different subclones. The extent of the proliferative advantage and the time between occurrence of the aberration and tumor collection influence the proportion of subclones in the tumor cells.
 
 The average copy numbers of heterogenic regions may be non-integer. Long non-integer regions may severely disturb a model-based copy number analysis as they do not fit the pre-determined relationship between signal and copy number.
 
