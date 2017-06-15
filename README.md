@@ -282,13 +282,9 @@ Many software are avaiable for doing CNV call from SNParray. Here is a non-exhau
   2. [OncoSNP](https://sites.google.com/site/oncosnp/)
 
 
-**What are the major cancer factors that could biais a CNV analysis  ?**
+**What are the major cancer factors that could biais a CNV analysis  ?** [solution](solutions/__challenges.md)
 
-[solution](solutions/__challenges.md)
-
-**What are the steps to proceed this analysis ?**
-
-[solution](solutions/ _SnpAnalysisSummary.md)
+**What are the steps to proceed this analysis ?** [solution](solutions/__SnpAnalysisSummary.md)
 
 ## Prepare the Environment
 We will use a dataset derived from whole genome sequencing of a clear-cell renal carcinoma patient (Kidney cancer)
