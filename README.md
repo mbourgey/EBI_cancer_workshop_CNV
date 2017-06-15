@@ -313,7 +313,7 @@ The initial structure of your folders should look like this:
         `-- tumor_BAF.tsv          # Beta Allele frequency file
         `-- tumor_LRR.tsv          # Log R Ratio file
 |-- saved_results                  # Pre-computed files
-`-- scripts                        # cheat sheet and builded ASCAT R package
+`-- scripts                        # cheat sheet 
 ```
 
 ## SNP data analysis for CNV detection 
