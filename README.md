@@ -339,7 +339,7 @@ library(ASCAT)
 Load the data into an ASCAT object
 
 ```{.R}
-ascat.bc = ascat.loadData("C0056/tumor/tumor_LRR.tsv","C0056/tumor/tumor_BAF.tsv", "C0056/normal/normal_LRR.tsv","C0056/normal/normal_BAF.tsv")
+ascat.bc = ascat.loadData("C0053/tumor/tumor_LRR.tsv","C0053/tumor/tumor_BAF.tsv", "C0053/normal/normal_LRR.tsv","C0053/normal/normal_BAF.tsv")
 
 ```
 
