@@ -295,7 +295,7 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-cd $HOME/ebicancerworkshop201607/CNV/SNParray
+cd $HOME/ebicancerworkshop2017/CNV/SNParray
 
 ```
 ### Software requirements

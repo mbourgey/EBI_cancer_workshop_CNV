@@ -1,5 +1,5 @@
 ## set environement
-cd $HOME/ebicancerworkshop201607/CNV/SNParray
+cd $HOME/ebicancerworkshop2017/CNV/SNParray
 
 R
 
