@@ -1,6 +1,6 @@
 Here are the main steps of a SNParray analysis
 
-Starting from a CEL files (1-9) or from LRR and BAF files (3-9):
+Starting from a CEL files (1-6) or from LRR and BAF files (3-6):
 
  1. Normalize probe intensity
  2. Generate genotyping from CEL files

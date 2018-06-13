@@ -1,13 +1,4 @@
-let's start by looking at the paramter estimate
-
-```{.bash}
-less sample.Param_estimate.tsv
-
-```
-
-The celullarity estimate is 41% and the ploidy is 2.36 
-
-Now open the ASCAT profile
+Open the ASCAT profile
 
 ```{.bash}
 eof LRR.ASCATprofile.png

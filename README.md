@@ -265,37 +265,33 @@ start from one LRR signal file and one BAF signal file for each of the germline 
 
 Many software are avaiable for doing CNV call from SNParray. Here is a non-exhaustive list of  softaware that could be used:
 
-1. Proprietary softwares
+#### Proprietary softwares
   1. [GenomeStudio/CNVpartition](http://support.illumina.com/array/array_software/genomestudio/downloads.ilmn) - Illumina
   2. [Genotyping Console/Birdsuite](http://www.broadinstitute.org/science/programs/medical-and-population-genetics/birdsuite/birdsuite-0) - Affymetrix
-2. Affymetrix oriented softwares
+#### Affymetrix oriented softwares
   1. [Genome Alteration Detection Algorithm (GADA)](https://r-forge.r-project.org/R/?group_id=915)
   2. [Cokgen](http://mendel.gene.cwru.edu/laframboiselab/software.php)
-3. Commercial softwares
+#### Commercial softwares
   1. [Partek Genomics Suite](http://www.partek.com/)
   2. [Golden Helix SNP](http://www.goldenhelix.com/SNP_Variation/CNV_Analysis_Package/index.html)
-4. Freely available general software
+#### Freely available general software
   1. [PennCNV](http://www.openbioinformatics.org/penncnv/)
   2. [QuantiSNP](https://sites.google.com/site/quantisnp/)
-5. Freely available cancer oriented software
+#### Freely available cancer oriented software
   1. [**Allele-Specific Copy number Analysis of Tumors (ASCAT)**](http://heim.ifi.uio.no/bioinf/Projects/ASCAT/)
   2. [OncoSNP](https://sites.google.com/site/oncosnp/)
 
 
-**What are the major cancer factors that could biais a CNV analysis  ?**
+**What are the major cancer factors that could biais a CNV analysis  ?** [solution](solutions/__challenges.md)
 
-[solution](solutions/__challenges.md)
-
-**What are the steps to proceed this analysis ?**
-
-[solution](solutions/ _SnpAnalysisSummary.md)
+**What are the steps to proceed this analysis ?** [solution](solutions/__SnpAnalysisSummary.md)
 
 ## Prepare the Environment
 We will use a dataset derived from whole genome sequencing of a clear-cell renal carcinoma patient (Kidney cancer)
 
 ```{.bash}
 ## set environement
-cd $HOME/ebicancerworkshop201607/CNV/SNParray
+cd $HOME/ebicancerworkshop2017/CNV/SNParray
 
 ```
 ### Software requirements
@@ -317,14 +313,14 @@ The initial structure of your folders should look like this:
         `-- tumor_BAF.tsv          # Beta Allele frequency file
         `-- tumor_LRR.tsv          # Log R Ratio file
 |-- saved_results                  # Pre-computed files
-`-- scripts                        # cheat sheet and builded ASCAT R package
+`-- scripts                        # cheat sheet 
 ```
 
 ## SNP data analysis for CNV detection 
-In our case, the data are in LRR and BAF format so we skip the first processing steps 
+In our case, the data are in LRR and BAF format so we'll skip the first processing steps 
 
-###  Probe filtering
-This steps aim to filter out SNPs which are found to be homozygous for both  tumor and normal.
+###  Plot probe LRR and BAF QC
+This steps aim to load the data and plot the BAF and LRR signal to ensure high quality signals.
 
 First let's launch R:
 
@@ -343,7 +339,7 @@ library(ASCAT)
 Load the data into an ASCAT object
 
 ```{.R}
-ascat.bc = ascat.loadData("C0056/tumor/tumor_LRR.tsv","C0056/tumor/tumor_BAF.tsv", "C0056/normal/normal_LRR.tsv","C0056/normal/normal_BAF.tsv")
+ascat.bc = ascat.loadData("C0053/tumor/tumor_LRR.tsv","C0053/tumor/tumor_BAF.tsv", "C0053/normal/normal_LRR.tsv","C0053/normal/normal_BAF.tsv")
 
 ```
 
@@ -354,8 +350,12 @@ ascat.plotRawData(ascat.bc)
 
 ```
 
-### Segmenetation of LRR and BAF signal
-The next step allows to perform the segmentation of both LRR and BAF signal. The main points of this segmentation is estimate a models of segmentation that should fit between the 2 signals
+look at the graphs `tumor2.germline.png` and `tumor2.tumor.png`
+
+**what stands out from these graphs ?** [solution](solutions/__rawPlot.md)
+
+### Filtering and segmentation of LRR and BAF signal
+The next step filter out SNPs which are found to be homozygous for both tumor and normal. it also allows to perform the segmentation of both LRR and BAF signal. The main points of this segmentation is estimate a models of segmentation that should fit between the 2 signals
 
 ```{.R}
 ascat.seg = ascat.aspcf(ascat.bc)
@@ -369,6 +369,7 @@ ascat.plotSegmentedData(ascat.seg)
 
 ```
 
+look at the `tumor2.ASPCF.png'. We can see after fitering out the homozygous probes the signal is very clean and confirm the presence of several CNA.
 
 ### Estimation of the model paremters
 This function will use the computed segmentation model and estimate the following sample paramters: 
@@ -390,9 +391,16 @@ write.table(params.estimate,"sample.Param_estimate.tsv",sep="\t",quote=F,col.nam
 
 ```
 
+Look at the 'sample.Param_estimate.tsv' text files.  
+
+
+The estimated aberrant_cell_fraction is 0.53 which means approximately 50% of the cell in the  tumor sample come from the normal.  
+
+The etimated polidy is 2.32 which means approximately a third of the genome is triploid.
+
 
 ### CNV calling from segments
-The last step woll determine the copy number by simply counting the total number of allele reported to the sample general ploidy.
+The last step will determine the copy number by simply counting the total number of allele reported to the sample general ploidy.
 
 
 ```{.R}
@@ -408,6 +416,8 @@ And we finally save the CNV results into a file
 write.table(output.table[output.table$CNA != ".",],"sample_CNVcalls.tsv",quote=F,sep="\t",col.names=T,row.names=F)
 q(save="yes")
 ```
+
+Explore the result files
 
 **What are these results telling us ?** [solution](solutions/__ascat1.md)
 

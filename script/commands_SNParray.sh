@@ -1,11 +1,11 @@
 ## set environement
-cd $HOME/ebicancerworkshop201607/CNV/SNParray
+cd $HOME/ebicancerworkshop2018/CNV/SNParray
 
 R
 
 library(ASCAT)
 
-ascat.bc = ascat.loadData("C0053/tumor/tumor_LRR.tsv","C0053/tumor/tumor_BAF.tsv", "C0053/normal/normal_LRR.tsv","C0053/normal/normal_BAF.tsv")
+ascat.bc = ascat.loadData("tumor2.LRR.tsv","tumor2.BAF.tsv","normal2.LRR.tsv","normal2.BAF.tsv")
 
 ascat.plotRawData(ascat.bc)
 
