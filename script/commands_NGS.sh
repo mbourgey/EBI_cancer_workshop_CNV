@@ -7,15 +7,18 @@ cd $HOME/ebicancerworkshop2018/CNV/NGS
 ## sequenza preprocessing step 1 - bam 2 seqz format
 mkdir -p sequenza
 
-${SEQUENZA_UTILS} bam2seqz \
- -n normal/normal.sorted.dup.recal.bam \
- -t tumor/tumor.sorted.dup.recal.bam \
- --fasta ${REF}/Homo_sapiens.GRCh37.fa  \
- -gc ${REF}/Homo_sapiens.GRCh37.gc50Base.txt.gz \
- -q 20 \
- -N 20 \
- -C 2:106000000-166000000 | gzip > \
- sequenza/C0053.seqz.gz 
+# ${SEQUENZA_UTILS} bam2seqz \
+#  -n normal/normal.sorted.dup.recal.bam \
+#  -t tumor/tumor.sorted.dup.recal.bam \
+#  --fasta ${REF}/Homo_sapiens.GRCh37.fa  \
+#  -gc ${REF}/Homo_sapiens.GRCh37.gc50Base.txt.gz \
+#  -q 20 \
+#  -N 20 \
+#  -C 2:106000000-166000000 | gzip > \
+#  sequenza/C0053.seqz.gz 
+
+cp saved_results/sequenza/C0053.seqz.gz sequenza/
+
 
 
 ## sequenza preprocessing step 2 - seqz binning 500bp
@@ -24,7 +27,7 @@ ${SEQUENZA_UTILS} seqz-binning \
  -s sequenza/C0053.seqz.gz | gzip > \
  sequenza/C0053.seqz.bin500.gz
 
-zless -S sequenza/C0053.seqz.gz
+#zless -S sequenza/C0053.seqz.gz
 
 R
 
@@ -39,6 +42,8 @@ sequenza.results(sequenza.extract = seqzdata,
  cp.table = CP.example, 
  sample.id = "C0053", 
  out.dir="sequenza/results")
+ 
+
 
 q("yes")
 
@@ -46,5 +51,5 @@ evince sequenza/results/C0053_model_fit.pdf
 
 evince sequenza/results/C0053_genome_view.pdf
 
-igv &
+#igv &
 
