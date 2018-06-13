@@ -5,7 +5,7 @@ evince saved_results/preComputed/C0053_full_model_fit.pdf
 
 ```
 
-We can see that the parameter estimates based on the whole genome (cellularity 0.47, ploidy 2.5) correspond to thoise estiamtate only on a small part of geneome. which show the efficiency of the method.  
+We can see that the parameter estimates based on the whole genome (cellularity 0.47, ploidy 2.5) correspond to those estimtated only on a small part of genome. This is showing the efficiency of the method.  
 
 
 Now let's look at the genome view  

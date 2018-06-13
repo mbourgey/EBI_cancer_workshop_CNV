@@ -223,9 +223,9 @@ This file contains three “pages” of copy number events through the entire ge
 **What are these graphs telling us ?** [solution](solutions/__results2.md)
 
 
-We can see how this is a very easy to read output and lets us immediately see the frequency and severity of copy number events through the genome.
+We can see how this is a very easy to read output and it lets us immediately see the frequency and severity of copy number events through the genome.
 
-Let’s compare the small genomic block we ran with the same output from the entire genome which has been pre-computed for you. This is located in the `saved_results/preComputed/` folder and contains the same 13 output files as for the small genomic block.
+Let’s compare the small genomic block we ran with the same output from the entire genome which has been pre-computed for you. This is located in the `saved_results/preComputed/` folder and contains the same 11 output files as for the small genomic block.
 
 **What are these graphs telling us ?** [solution](solutions/__results3.md)
 
