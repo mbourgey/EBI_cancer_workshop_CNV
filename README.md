@@ -43,10 +43,10 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-export SEQUENZA_UTILS=/usr/local/lib/R/site-library/sequenza/exec/sequenza-utils.py
-export REF=/home/training/ebicancerworkshop2017/reference
+export SEQUENZA_UTILS=/home/training/R/x86_64-pc-linux-gnu-library/3.4/sequenza/exec/sequenza-utils.py
+export REF=/home/training/ebicancerworkshop2018/reference
 
-cd $HOME/ebicancerworkshop2017/CNV/NGS
+cd $HOME/ebicancerworkshop2018/CNV/NGS
 
 ```
 ### Software requirements
@@ -291,7 +291,7 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-cd $HOME/ebicancerworkshop2017/CNV/SNParray
+cd $HOME/ebicancerworkshop2018/CNV/SNParray
 
 ```
 ### Software requirements
@@ -339,7 +339,7 @@ library(ASCAT)
 Load the data into an ASCAT object
 
 ```{.R}
-ascat.bc = ascat.loadData("C0053/tumor/tumor_LRR.tsv","C0053/tumor/tumor_BAF.tsv", "C0053/normal/normal_LRR.tsv","C0053/normal/normal_BAF.tsv")
+ascat.bc = ascat.loadData("tumor2.LRR.tsv","tumor2.BAF.tsv", "normal2.LRR.tsv","normal2.BAF.tsv")
 
 ```
 
