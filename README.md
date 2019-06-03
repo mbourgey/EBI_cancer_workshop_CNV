@@ -72,11 +72,9 @@ The initial structure of your folders should look like this:
     `-- normal                     # The blood sample directory
         `-- normal_chr2_60Mb.bam   # Alignment file as  generated through the SNV session
         `-- normal_chr2_60Mb.bai   # Index of the alignment file
-        `-- normal_chr2_60Mb.pileup.gz # preprocessed mpileUp file
     `-- tumor                      # The tumor sample directory
         `-- tumor_chr2_60Mb.bam    # Alignment file as  generated through the SNV session
         `-- tumor_chr2_60Mb.bai    # Index of the alignment file
-        `-- tumor_chr2_60Mb.pileup.gz # preprocessed mpileUp file
 |-- saved_results                  # Pre-computed files
 `-- scripts                        # cheat sheet folder
 ```
