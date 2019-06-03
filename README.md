@@ -319,11 +319,11 @@ The initial structure of your folders should look like this:
 <ROOT>
 |-- C0053/                         # fastqs from the center (down sampled)
     `-- normal                     # The blood sample directory
-        `-- normal_BAF.tsv         # Beta Allele frequency file
-        `-- normal_LRR.tsv         # Log R Ratio file 
+        `-- normal2.BAF.tsv         # Beta Allele frequency file
+        `-- normal2.LRR.tsv         # Log R Ratio file 
     `-- tumor                      # The tumor sample directory
-        `-- tumor_BAF.tsv          # Beta Allele frequency file
-        `-- tumor_LRR.tsv          # Log R Ratio file
+        `-- tumor2.BAF.tsv          # Beta Allele frequency file
+        `-- tumor2.LRR.tsv          # Log R Ratio file
 |-- saved_results                  # Pre-computed files
 `-- scripts                        # cheat sheet 
 ```
