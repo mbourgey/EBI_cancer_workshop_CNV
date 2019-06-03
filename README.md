@@ -43,10 +43,15 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-export SEQUENZA_UTILS=/home/training/R/x86_64-pc-linux-gnu-library/3.4/sequenza/exec/sequenza-utils.py
-export REF=/home/training/ebicancerworkshop2018/reference
 
-cd $HOME/ebicancerworkshop2018/CNV/NGS
+#launch docker
+docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd  c3genomics/genpipes:0.8
+
+module load mugqic/samtools/1.4.1 mugqic/R_Bioconductor/3.5.0_3.7 mugqic/python/2.7.14
+
+export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/genome
+
+cd $HOME/ebicancerworkshop2019/CNV/NGS
 
 ```
 ### Software requirements
@@ -93,7 +98,7 @@ As we haven’t already generated the pileup files, and we are not interested in
 ###Already preprocessed
 mkdir -p sequenza
 
-#${SEQUENZA_UTILS} bam2seqz \
+# sequenza-utils bam2seqz \
 # -n C0053/normal/normal_chr2_60Mb.bam \
 # -t C0053/tumor/tumor_chr2_60Mb.bam \
 # --fasta ${REF}/Homo_sapiens.GRCh37.fa  \
@@ -111,7 +116,7 @@ To reduce the size of the seqz file, we'll use of a binning function provided in
 
 ```{.bash}
 ## sequenza preprocessing step 2 - seqz binning 500bp
-${SEQUENZA_UTILS} seqz-binning \
+sequenza-utils seqz_binning \
  -w 500 \
  -s sequenza/C0053.seqz.gz | gzip > \
  sequenza/C0053.seqz.bin500.gz
@@ -194,6 +199,9 @@ We can now quit R and explore the generated results
 ```{.R}
 q("yes")
 
+#quit the docker environment
+exit
+
 ```
 ## Sequenza Analysis Results and Visualisation
 One of the first and most important estimates that Sequenza provides is the tumour cellularity (the estimated percentage of tumour cells in the tumour genome). This estimate is based on the B allele frequency and depth ratio through the genome and is an important metric to know for interpretation of Sequenza results and for other analyses.
@@ -202,7 +210,7 @@ One of the first and most important estimates that Sequenza provides is the tumo
 Lets look at the cellularity estimate for our analysis by opening model fit.pdf with the command:
 
 ```{.bash}
-evince sequenza/results/C0053_model_fit.pdf
+evince sequenza/results/C0053_model_fit.pdf &
 
 ```
 
@@ -215,7 +223,7 @@ Close the PDF window to resume the Terminal prompt.
 Let’s now look at the CNV inferences through our genomic block. Open the  genome copy number visualisation file with:
 
 ```{.bash}
-evince sequenza/results/C0053_genome_view.pdf
+evince sequenza/results/C0053_genome_view.pdf &
 
 ```
 This file contains three “pages” of copy number events through the entire genomic block. The first page shows copy numbers of the A (red) and B (blue) alleles, the second page shows overall copy number changes and the third page shows the B allele frequency and depth ratio through genomic block.
@@ -291,7 +299,13 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-cd $HOME/ebicancerworkshop2018/CNV/SNParray
+#launch docker
+docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd  c3genomics/genpipes:0.8
+
+module load mugqic/R_Bioconductor/3.5.0_3.7
+
+
+cd $HOME/ebicancerworkshop2019/CNV/SNParray
 
 ```
 ### Software requirements
@@ -339,7 +353,7 @@ library(ASCAT)
 Load the data into an ASCAT object
 
 ```{.R}
-ascat.bc = ascat.loadData("tumor2.LRR.tsv","tumor2.BAF.tsv", "normal2.LRR.tsv","normal2.BAF.tsv")
+ascat.bc = ascat.loadData("C0053/tumor/tumor2.LRR.tsv","C0053/tumor/tumor2.BAF.tsv", "C0053/normal/normal2.LRR.tsv","C0053/normal/normal2.BAF.tsv")
 
 ```
 
@@ -416,6 +430,14 @@ And we finally save the CNV results into a file
 write.table(output.table[output.table$CNA != ".",],"sample_CNVcalls.tsv",quote=F,sep="\t",col.names=T,row.names=F)
 q(save="yes")
 ```
+
+
+Now you can quite the docker environment
+
+```{.bash}
+exit
+```
+
 
 Explore the result files
 
