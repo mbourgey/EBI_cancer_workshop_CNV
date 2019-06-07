@@ -45,9 +45,8 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 ## set environement
 
 #launch docker
-docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd  c3genomics/genpipes:0.8
+docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
 
-module load mugqic/samtools/1.4.1 mugqic/R_Bioconductor/3.5.0_3.7 mugqic/python/2.7.14
 
 export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/genome
 
@@ -62,6 +61,13 @@ These are all already installed, but here are the original links.
   * [samtools](http://sourceforge.net/projects/samtools/)
   * [python 2.7](https://www.python.org/)
   * [IGV](http://www.broadinstitute.org/software/igv/download)
+
+We should load the corresponding modules 
+
+```{.bash}
+module load mugqic/samtools/1.4.1 mugqic/R_Bioconductor/3.6.0_3.9 mugqic/python/2.7.14
+
+```
 
 ## Original Setup
 
@@ -297,10 +303,9 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 
 ```{.bash}
 ## set environement
-#launch docker
-docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd  c3genomics/genpipes:0.8
 
-module load mugqic/R_Bioconductor/3.5.0_3.7
+#launch docker
+docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
 
 
 cd $HOME/ebicancerworkshop2019/CNV/SNParray
@@ -311,6 +316,14 @@ These are all already installed, but here are the original links.
 
   * [R](https://www.r-project.org/)
   * [ASCAT R package*](https://github.com/Crick-CancerGenomics/ascat)
+
+We should load the corresponding modules 
+
+```{.bash}
+module load mugqic/R_Bioconductor/3.6.0_3.9
+
+```
+
 
 ## Original Setup
 
