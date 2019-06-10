@@ -1,7 +1,7 @@
 Open the ASCAT profile
 
 ```{.bash}
-eof LRR.ASCATprofile.png
+tumor2.ASCATprofile.png
 
 ```
 
