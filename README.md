@@ -23,11 +23,11 @@ Goals of this session are:
 
 ---------------------------------
 # NGS data analysis
-In this session  we will produce the main steps of the analysis of NGS data in order to detectc CNV and also to estimate cellularity, ploidy of the tuor sample. Sequenza is the tool we will use to perform this analysis. Sequenza is able to perform the CNV analysis in both WGS and WES data. 
+In this session  we will produce the main steps of the analysis of NGS data in order to detect CNV and also to estimate cellularity, ploidy of the tumor sample. Sequenza is the tool we will use to perform this analysis. Sequenza is able to perform the CNV analysis in both WGS and WES data. 
 
 It consists of a two Python pre-processing steps followed by a third step in R to infer the samples estimates and to plot the results for interpretation.
 
-In a second timel we will also be using IGV to visualise and manually inspect the copy number variation we inferred in the first part for validation purposes.
+In a second time we will also been using IGV to visualise and manually inspect the copy number variation, we inferred in the first part, for validation purposes.
 
 ## Data Source
 We will be working on a CageKid sample pair, patient C0053.
@@ -45,10 +45,12 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 ## set environement
 
 #launch docker
-docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
+docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME \
+--user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd \
+-e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
 
 
-export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/genome
+export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/
 
 cd $HOME/ebicancerworkshop2019/CNV/NGS
 
@@ -105,8 +107,8 @@ mkdir -p sequenza
 # sequenza-utils bam2seqz \
 # -n C0053/normal/normal_chr2_60Mb.bam \
 # -t C0053/tumor/tumor_chr2_60Mb.bam \
-# --fasta ${REF}/Homo_sapiens.GRCh37.fa  \
-# -gc ${REF}/Homo_sapiens.GRCh37.gc50Base.txt.gz \
+# --fasta ${REF}/genome/Homo_sapiens.GRCh37.fa  \
+# -gc ${REF}/annotations/Homo_sapiens.GRCh37.gc50Base.txt.gz \
 # -q 20 \
 # -N 20 \
 # -C 2:106000000-166000000 | gzip > \
@@ -176,7 +178,7 @@ seqzdata = sequenza.extract(data.file)
 
 ```
 
-After the raw data is processed, the size of the data is considerably reduced.Typically, the R object resulting from `sequenza.extract` can be stored as a file of a few megabytes, even for whole genome sequencing data.
+After the raw data is processed, the size of the data is considerably reduced. Typically, the R object resulting from `sequenza.extract` can be stored as a file of a few megabytes, even for whole genome sequencing data.
 
 ### Inference of cellularity and ploidy
 After the raw data is processed, imported into R, and normalized, we can apply the parameter inference implemented in the package. The function `sequenza.fit` performs the inference using the calculated B allele frequency and depth ratio of the obtained segments. 
@@ -203,7 +205,12 @@ We can now quit R and explore the generated results
 ```{.R}
 q("yes")
 
-#quit the docker environment
+```
+
+## Quit the docker environment
+
+
+```{.bash}
 exit
 
 ```
@@ -214,20 +221,19 @@ One of the first and most important estimates that Sequenza provides is the tumo
 Lets look at the cellularity estimate for our analysis by opening model fit.pdf with the command:
 
 ```{.bash}
-evince sequenza/results/C0053_model_fit.pdf &
+evince CNV/NGS/sequenza/results/C0053_model_fit.pdf &
 
 ```
 
 **What is the graph telling us ?** [solution](solutions/__results1.md)
 
 
-Close the PDF window to resume the Terminal prompt.
 
 
 Let’s now look at the CNV inferences through our genomic block. Open the  genome copy number visualisation file with:
 
 ```{.bash}
-evince sequenza/results/C0053_genome_view.pdf &
+evince CNV/NGS/sequenza/results/C0053_genome_view.pdf &
 
 ```
 This file contains three “pages” of copy number events through the entire genomic block. The first page shows copy numbers of the A (red) and B (blue) alleles, the second page shows overall copy number changes and the third page shows the B allele frequency and depth ratio through genomic block.
@@ -236,10 +242,6 @@ This file contains three “pages” of copy number events through the entire ge
 
 
 We can see how this is a very easy to read output and it lets us immediately see the frequency and severity of copy number events through the genome.
-
-Let’s compare the small genomic block we ran with the same output from the entire genome which has been pre-computed for you. This is located in the `saved_results/preComputed/` folder and contains the same 11 output files as for the small genomic block.
-
-**What are these graphs telling us ?** [solution](solutions/__results3.md)
 
 
 
@@ -263,9 +265,20 @@ Once IGV is open just load the normal et tumor bam files and zoom on the region 
 
 **Are IGV profiles in concordence with sequenza results ?** [solution](solutions/__visu3.md)
 
-If we look at the tumor profiles wecan see that the 3 copies state correspond to a mean coverage of 60x, the 2 copies to 50x and the 1 copy to 40x. 
+If we look at the tumor profiles we can see :   
+
+  1 - the 3 copies state correspond to a mean coverage of 60x
+  2 - the 2 copies state correspond to a mean coverage of 50x 
+  3 - the 1 copy state correspond to a mean coverage of 40x. 
 
 **How could you explain these values ?** [solution](solutions/__visu4.md)
+
+
+## Whole genome data
+
+Let’s compare the small genomic block we ran with the entire genome which will be processed through the SNParray technology.
+
+
 
 ----------------------------------
 
@@ -305,7 +318,10 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 ## set environement
 
 #launch docker
-docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
+docker run --privileged -v /tmp:/tmp --network host \
+  -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS \
+  -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd \
+  -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
 
 
 cd $HOME/ebicancerworkshop2019/CNV/SNParray
@@ -364,7 +380,11 @@ library(ASCAT)
 Load the data into an ASCAT object
 
 ```{.R}
-ascat.bc = ascat.loadData("C0053/tumor/tumor2.LRR.tsv","C0053/tumor/tumor2.BAF.tsv", "C0053/normal/normal2.LRR.tsv","C0053/normal/normal2.BAF.tsv")
+ascat.bc = ascat.loadData(
+  "C0053/tumor/tumor2.LRR.tsv", 
+  "C0053/tumor/tumor2.BAF.tsv", 
+  "C0053/normal/normal2.LRR.tsv",
+  "C0053/normal/normal2.BAF.tsv")
 
 ```
 
@@ -411,8 +431,20 @@ Next save these estimates into a file
 
 
 ```{.R}
-params.estimate=data.frame(Sample=names(ascat.output$aberrantcellfraction),Aberrant_cell_fraction=round(ascat.output$aberrantcellfraction,2),Ploidy=round(ascat.output$ploidy,2))
-write.table(params.estimate,"sample.Param_estimate.tsv",sep="\t",quote=F,col.names=T,row.names=F)
+params.estimate=data.frame(
+   Sample=names(ascat.output$aberrantcellfraction),
+   Aberrant_cell_fraction=round(ascat.output$aberrantcellfraction,2),
+   Ploidy=round(ascat.output$ploidy,2)
+)
+
+write.table(
+   params.estimate,
+   "sample.Param_estimate.tsv",
+   sep="\t",
+   quote=F,
+   col.names=T,
+   row.names=F
+)
 
 ```
 

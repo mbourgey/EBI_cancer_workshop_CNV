@@ -1,13 +1,13 @@
-To explain why we are only seeing such a small coverage increase, we need to turn to our good friend mathematics!
+To explain why we are only seeing such a small coverage increase, we need to turn to our good friend mathematics !
 
  - If a 3 copies state correspond to 60x of coverage. 
  - we expect 2 copies at 40x 
  - 1 copy at 20x 
  - and 0 copy at 0X
  
-But here the cellularity vairaible is missing. We estimated a cellularity of ~ 50% which mean that half reads observed in tumor come from the normal cells (30x). So if focus only on reads that really come from tumor cells we would expect:
+But here the cellularity variable is missing. We estimated a cellularity of ~ 50% which mean that half reads observed in tumor come from the normal cells (30x). So if focus only on reads that really come from tumor cells we would expect:
 
- - If a 3 copies state correspond to 30x of coverage. 
+ - If a 3 copies state correspond to 30x of coverage (60x - 30x of normal). 
  - we expect 2 copies at 20x 
  - 1 copy at 10x 
  - and 0 copy at 0X
