@@ -8,7 +8,7 @@ docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME \
 
 export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/
 
-cd $HOME/ebicancerworkshop2019/CNV/NGS
+cd $HOME/ebicancerworkshop2020/CNV/NGS
 
 
 module load mugqic/samtools/1.4.1 mugqic/R_Bioconductor/3.6.0_3.9 mugqic/python/2.7.14
