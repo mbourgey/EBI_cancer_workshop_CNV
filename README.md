@@ -52,7 +52,7 @@ docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME \
 
 export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/
 
-cd $HOME/ebicancerworkshop2020/CNV/NGS
+cd $HOME/ebicancerworkshop2021/CNV/NGS
 
 ```
 ### Software requirements
@@ -114,7 +114,7 @@ mkdir -p sequenza
 # -C 2:106000000-166000000 | gzip > \
 # sequenza/C0053.seqz.gz 
 
-cp saved_results/sequenza/C0053.seqz.gz sequenza/
+# cp saved_results/sequenza/C0053.seqz.gz sequenza/
 
 ```
 
@@ -324,7 +324,7 @@ docker run --privileged -v /tmp:/tmp --network host \
   -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
 
 
-cd $HOME/ebicancerworkshop2019/CNV/SNParray
+cd $HOME/ebicancerworkshop2021/CNV/SNParray
 
 ```
 ### Software requirements

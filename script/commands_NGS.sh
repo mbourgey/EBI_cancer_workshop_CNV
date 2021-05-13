@@ -30,7 +30,7 @@ mkdir -p sequenza
 # -C 2:106000000-166000000 | gzip > \
 # sequenza/C0053.seqz.gz 
 
-cp saved_results/sequenza/C0053.seqz.gz sequenza/
+# cp saved_results/sequenza/C0053.seqz.gz sequenza/
 
 
 ## sequenza preprocessing step 2 - seqz binning 500bp
