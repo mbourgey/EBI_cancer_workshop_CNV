@@ -87,6 +87,9 @@ The initial structure of your folders should look like this:
 `-- scripts                        # cheat sheet folder
 ```
 ## Generate a seqz file
+
+More info on Sequenza see [User Guide](https://cran.r-project.org/web/packages/sequenza/vignettes/sequenza.html)
+
 A seqz file contains genotype information, alleles and mutation frequency, and other features. This file is used as input for the R-based part of Sequenza.
 
 The seqz file could be generated from a pileUp file (as shown in SNV session) or directly from the bam file. 
@@ -113,8 +116,6 @@ mkdir -p sequenza
 # -N 20 \
 # -C 2:106000000-166000000 | gzip > \
 # sequenza/C0053.seqz.gz 
-
-# cp saved_results/sequenza/C0053.seqz.gz sequenza/
 
 ```
 
