@@ -45,14 +45,15 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 ## set environement
 
 #launch docker
-docker run --privileged -v /tmp:/tmp --network host -it -w $PWD -v $HOME:$HOME \
---user $UID:$GROUPS -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd \
--e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
+docker run --privileged -v /tmp:/tmp --network host -it \
+    -w $PWD -v $HOME:$HOME -v /etc/fonts/:/etc/fonts/ \
+    -v $HOME/cvmfs_caches/:/cvmfs-cache/ c3genomics/genpipes:v2.1.0
 
+module purge 
 
 export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/
 
-cd $HOME/ebicancerworkshop2021/CNV/NGS
+cd $HOME/ebicancerworkshop2022/CNV/NGS
 
 ```
 ### Software requirements
@@ -319,13 +320,11 @@ We will use a dataset derived from whole genome sequencing of a clear-cell renal
 ## set environement
 
 #launch docker
-docker run --privileged -v /tmp:/tmp --network host \
-  -it -w $PWD -v $HOME:$HOME --user $UID:$GROUPS \
-  -v /etc/group:/etc/group  -v /etc/passwd:/etc/passwd \
-  -e DISPLAY=$DISPLAY -v /etc/fonts/:/etc/fonts/  c3genomics/genpipes:0.8
+docker run --privileged -v /tmp:/tmp --network host -it \
+    -w $PWD -v $HOME:$HOME -v /etc/fonts/:/etc/fonts/ \
+    -v $HOME/cvmfs_caches/:/cvmfs-cache/ c3genomics/genpipes:v2.1.0
 
-
-cd $HOME/ebicancerworkshop2021/CNV/SNParray
+cd $HOME/ebicancerworkshop2022/CNV/SNParray
 
 ```
 ### Software requirements
