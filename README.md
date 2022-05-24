@@ -99,7 +99,7 @@ The seqz file could be generated from a pileUp file (as shown in SNV session) or
 
 ### transforming bam files in seqz file
 As we haven’t already generated the pileup files, and we are not interested in storing the pileup for further use, we can use the function
-`bam2seqz` which converting on the fly to pileup using samtools without storing the pileup file.
+`bam2seqz` which converts on the fly bam to pileup to seqz using samtools without storing the pileup file.
 
 **What the impact of converting data on the fly ?** [solution](solutions/__seqz1.md)
 
@@ -120,7 +120,7 @@ mkdir -p sequenza
 
 ```
 
-To reduce the size of the seqz file, we'll use of a binning function provided in sequenza-utils.py. This binning decreases the memory requirement to load the data into R, and it also speeds up the processing of the sample.
+To reduce the size of the seqz file, we'll use a binning function provided in sequenza-utils.py. This binning decreases the memory requirement to load the data into R, and it also speeds up the processing of the sample.
 
 ```{.bash}
 ## sequenza preprocessing step 2 - seqz binning 500bp
@@ -139,7 +139,7 @@ zless -S sequenza/C0053.seqz.gz
 ```
 This output has one line for each position in the BAMs and includes information on the position, depths, allele frequencies, zygosity, GC in the location.
 
-Note that since many projects might already have been processed with VarScan2, it can be convenient to be able to import such results. For this purpose a simple function is provided within the R package, to convert the output of the somatic and copynumber programs of the VarScan2 suite into the seqz format.
+**Note that since many projects might already have been processed with VarScan2, it can be convenient to be able to import such results. For this purpose a simple function is provided within the R package, to convert the output of the somatic and copynumber programs of the VarScan2 suite into the seqz format.**
 
 ## Exploring the seqz file and depth ratio normalization details
 
