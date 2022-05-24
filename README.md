@@ -139,7 +139,7 @@ zless -S sequenza/C0053.seqz.gz
 ```
 This output has one line for each position in the BAMs and includes information on the position, depths, allele frequencies, zygosity, GC in the location.
 
-**Note that since many projects might already have been processed with VarScan2, it can be convenient to be able to import such results. For this purpose a simple function is provided within the R package, to convert the output of the somatic and copynumber programs of the VarScan2 suite into the seqz format.**
+**Note: since many projects might already have been processed with VarScan2, it can be convenient to be able to import such results. For this purpose a simple function is provided within the R package, to convert the output of the somatic and copynumber programs of the VarScan2 suite into the seqz format.**
 
 ## Exploring the seqz file and depth ratio normalization details
 
@@ -257,21 +257,21 @@ igv &
 
 IGV will take 30 seconds or so to open so just be patient.
 
-For a events of this size (several Mb), we should not be able to easily observe it just by looking at the raw read alignments. In order to see coverage at large scale I rpre-generate the tdf file of each bam files. This means that we can aggregate the average read depth over relatively large chunks of the genome and compare these values between the normal and tumour genomes.
+For a events of this size (several Mb), we should not be able to easily observe it just by looking at the raw read alignments. In order to see coverage at large scale I pre-generate the tdf file of each bam files. This means that we can aggregate the average read depth over relatively large chunks of the genome and compare these values between the normal and tumour genomes.
 
 Once IGV is open just load the normal et tumor bam files and zoom on the region `2:100000000-170000000`
 
 **What IGV profiles are telling us ?** [solution](solutions/__visu1.md)
 
-**How can you explain the peak and drop observed in both nromal and tumor ?** [solution](solutions/__visu2.md)
+**How can you explain the peak and drop observed in both normal and tumor ?** [solution](solutions/__visu2.md)
 
 **Are IGV profiles in concordence with sequenza results ?** [solution](solutions/__visu3.md)
 
 If we look at the tumor profiles we can see :   
 
-  1 - the 3 copies state correspond to a mean coverage of 60x
-  2 - the 2 copies state correspond to a mean coverage of 50x 
-  3 - the 1 copy state correspond to a mean coverage of 40x. 
+    1 - the 3 copies state correspond to a mean coverage of 60x
+    2 - the 2 copies state correspond to a mean coverage of 50x 
+    3 - the 1 copy state correspond to a mean coverage of 40x. 
 
 **How could you explain these values ?** [solution](solutions/__visu4.md)
 
