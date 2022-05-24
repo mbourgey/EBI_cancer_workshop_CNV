@@ -297,7 +297,7 @@ Many software are avaiable for doing CNV call from SNParray. Here is a non-exhau
   2. [Genotyping Console/Birdsuite](http://www.broadinstitute.org/science/programs/medical-and-population-genetics/birdsuite/birdsuite-0) - Affymetrix
 #### Affymetrix oriented softwares
   1. [Genome Alteration Detection Algorithm (GADA)](https://r-forge.r-project.org/R/?group_id=915)
-  2. [Cokgen](http://mendel.gene.cwru.edu/laframboiselab/software.php)
+  2. [Cokgen](https://genetics.cwru.edu/LaFramboise/pageL.php?page_id=2)
 #### Commercial softwares
   1. [Partek Genomics Suite](http://www.partek.com/)
   2. [Golden Helix SNP](http://www.goldenhelix.com/SNP_Variation/CNV_Analysis_Package/index.html)
@@ -305,7 +305,7 @@ Many software are avaiable for doing CNV call from SNParray. Here is a non-exhau
   1. [PennCNV](http://www.openbioinformatics.org/penncnv/)
   2. [QuantiSNP](https://sites.google.com/site/quantisnp/)
 #### Freely available cancer oriented software
-  1. [**Allele-Specific Copy number Analysis of Tumors (ASCAT)**](http://heim.ifi.uio.no/bioinf/Projects/ASCAT/)
+  1. [**Allele-Specific Copy number Analysis of Tumors (ASCAT)**](https://github.com/VanLoo-lab/ascat)
   2. [OncoSNP](https://sites.google.com/site/oncosnp/)
 
 
