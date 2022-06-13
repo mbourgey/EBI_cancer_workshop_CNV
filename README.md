@@ -52,8 +52,11 @@ docker run --privileged -v /tmp:/tmp --network host -it \
 module purge 
 
 export REF=$MUGQIC_INSTALL_HOME/genomes/species/Homo_sapiens.GRCh37/
+export COURSE=/home/training/ebicancerworkshop2022
 
-cd $HOME/ebicancerworkshop2022/CNV/NGS
+mkdir -p $COURSE/CNV/NGS
+
+cd $COURSE/CNV/NGS
 
 ```
 ### Software requirements
@@ -324,7 +327,11 @@ docker run --privileged -v /tmp:/tmp --network host -it \
     -w $PWD -v $HOME:$HOME -v /etc/fonts/:/etc/fonts/ \
     -v $HOME/cvmfs_caches/:/cvmfs-cache/ c3genomics/genpipes:v2.1.0
 
-cd $HOME/ebicancerworkshop2022/CNV/SNParray
+export COURSE=/home/training/ebicancerworkshop2022
+
+mkdir -p $COURSE/CNV/SNParray
+
+cd $COURSE/CNV/SNParray
 
 ```
 ### Software requirements
